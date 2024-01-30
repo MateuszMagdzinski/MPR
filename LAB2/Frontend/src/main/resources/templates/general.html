@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>Cat Site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-pink navbar-dark px-3 mb-3" th:fragment="navbar">
+    <div class="container-fluid">
+        <!-- Centrowanie tekstu na środku paska nawigacyjnego -->
+        <a class="navbar-brand mx-auto" href="/glowna"></a>
+        <div class="collapse navbar-collapse">
+            <ul class="nav nav-pills ms-auto flex-nowrap">
+                <!-- Centrowanie przycisków na środku paska nawigacyjnego -->
+                <li class="nav-item mx-auto">
+                    <a class="nav-link" href="/allCat" id="nav-item-all">All Cat</a>
+                </li>
+                <li class="nav-item mx-auto">
+                    <a class="nav-link" href="/addCat" id="nav-item-add">Add Cat</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<table class="table text-center table_transparent" th:fragment="tableAllCat">
+    <thead>
+    <tr>
+        <th scope="col"><b class="h4 text-black">ID</b></th>
+        <th scope="col"><b class="h4 text-black">Name</b></th>
+        <th scope="col"><b class="h4 text-black">Age</b></th>
+        <th scope="col"><b class="h4 text-black">Edit</b></th>
+        <th scope="col"><b class="h4 text-black">Delete</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cat : ${allCats}">
+        <td th:text="${cat.id}" class="text-black"></td>
+        <td th:text="${cat.name}" class="text-black"></td>
+        <td th:text="${cat.age}" class="text-black"></td>
+        <td>
+            <a th:href="@{'/updateCat/' + ${cat.getName()}}">
+                <button class="btn btn-dark">
+                    <b>Edit</b>
+                </button>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/deleteCat/' + ${cat.getName()}}">
+                <button class="btn btn-dark">
+                    <b>Delete</b>
+                </button>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

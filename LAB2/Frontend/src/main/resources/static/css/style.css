@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+#nav-item-add, #nav-item-all {
+    font-size: 16px;
+    color: aliceblue;
+}
+
+#nav-item-main-all {
+    font-size: 10px;
+    color: aliceblue;
+}
+
+.container-main {
+    /*margin-top: 20px;*/
+}
+
+html body {
+    background-image: url("https://wallpapercave.com/wp/wp8346083.jpg");
+    background-blend-mode: darken;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+input, select {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.btn-cancel {
+    padding: 14px 20px;
+    background-color: rgba(21, 21, 15, 0);
+    color: white;
+    margin: 8px 0;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.btn-update {
+    padding: 14px 20px;
+    background-color: rgba(53, 133, 53, 0);
+    color: white;
+    margin: 8px 0;
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+.btn-submit {
+    padding: 14px 20px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn-submit:hover, .btn-update:hover, .btn-cancel:hover {
+    opacity: 1;
+}
+
+.btn-cancel, .btn-submit, .btn-update {
+    width: 100%;
+}
+
+.table_transparent {
+    width: 70%; /* Adjust this value as needed */
+    margin: 0 auto; /* centers table horizontally */
+    /* --bs-table-bg: transparent !important; removed transparency */
+}
+
+tr > .text-white{
+    font-size: 18px; /*reduce font size*/
+}
+
+tr > th > .text-white{
+    font-size: 30px; /*reduce font size*/
+}

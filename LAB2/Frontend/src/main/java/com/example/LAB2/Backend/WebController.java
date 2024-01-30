@@ -1,7 +1,5 @@
 package com.example.LAB2.Backend;
 
-import com.example.LAB2.Backend.Cat;
-import com.example.LAB2.Backend.CatService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,13 +21,13 @@ public class WebController {
         model.addAttribute("allCats", catService.getAllCats());
         return "addCat";
     }
-    @PostMapping("/addCapybara")
+    @PostMapping("/addCat")
     public String addCat(@ModelAttribute Cat cat){
         if (cat.getAge()<=0){
-            return "addCats";
+            return "addCat";
         }
         catService.addCat(cat);
-        return "redirect:/allCats";
+        return "redirect:/allCat";
     }
     @GetMapping(value = "/updateCapybara/{name}")
     public String updateCat(Model model, @PathVariable("name") String name){
@@ -42,7 +40,7 @@ public class WebController {
     @PostMapping(value = "/updateCat")
     public String updateCat(@ModelAttribute Cat cat){
         catService.updateCatByName(cat.getName(),cat);
-        return "redirect:/allCats";
+        return "redirect:/allCat";
     }
     @GetMapping(value = "/deleteCat/{name}")
     public String deleteCat(@PathVariable("name") String name){

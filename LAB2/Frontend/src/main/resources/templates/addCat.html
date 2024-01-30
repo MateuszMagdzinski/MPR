@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Cat Details</title>
-</head>
+<html lang="en">
+<head th:replace="~{general.html :: head}"></head>
 <body>
-<table>
-    <thead>
-    <th>id</th>
-    <th>name</th>
-    <th>age</th>
-    </thead>
-    <tbody>
-    <tr th:each="addCat : ${allCats}">
-        <td th:text="${cat.id}"></td>
-        <td th:text="${cat.name}"></td>
-        <td th:text="${cat.age}"></td>
-
-    </tr>
-    </tbody>
-    <a href="http://localhost:8081/allCat" class="btn">Go to Cat Page</a>
-</table>
+<nav th:replace="~{general.html :: navbar}"></nav>
+<div class="container-fluid container-main">
+    <div class="row">
+        <div class="col">
+            <form method="post" action="#" th:action="@{/addCat}" th:object="${cat}">
+                <div>
+                    <label for="name"><b class="text-start">Name:</b></label>
+                    <input type="text" name="name" th:field="*{name}" id="name" required>
+                </div>
+                <div>
+                    <label for="age"><b>Age:</b></label>
+                    <input type="number" name="age" th:field="*{age}" id="age" required>
+                </div>
+                <div class="clearfix">
+                    <button type="reset" class="btn-cancel">Cancel</button>
+                    <button type="submit" id="send" class="btn-submit">Add Cat</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-8 text-center d-flex justify-content-center align-items-center">
+            <table th:replace="~{general.html :: tableAllCat}"></table>
+        </div>
+    </div>
+</div>
 </body>
 </html>
