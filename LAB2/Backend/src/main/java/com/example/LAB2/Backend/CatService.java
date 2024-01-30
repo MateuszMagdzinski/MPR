@@ -5,6 +5,7 @@ import com.example.LAB2.Backend.exception.CatNotExist;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,11 +29,11 @@ public class CatService {
             return (ArrayList<Cat>) this.repository.findAll();
         else throw new CatNotExist();
     }
-    public Optional<Cat> addCat(Cat cat){
+    public Optional<Cat> addCat(Cat cat) {
         if (repository.findByName(cat.getName()).isEmpty())
             return Optional.of(this.repository.save(cat));
-    else
-    throw new CatExist();
+        else
+            throw new CatExist();
     }
     public void deleteCatByName(String name) {
         var capybara = this.repository.findByName(name);
@@ -50,5 +51,11 @@ public class CatService {
         } else {
             throw new CatNotExist();
         }
+    }
+    public List<Cat> findCatsThatNameIsContainsNameFromLink(String name) {
+        var catListWithAllCats = ((ArrayList<Cat>) this.repository.findAll());
+        return catListWithAllCats.stream()
+                .filter(cat -> cat.getName().contains(name))
+                .toList();
     }
 }

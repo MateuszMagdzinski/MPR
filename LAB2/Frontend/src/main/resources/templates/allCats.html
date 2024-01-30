@@ -77,7 +77,7 @@
         </tr>
         <tr>
             <td>Age:</td>
-            <td><input type="text" th:name="Age" /></td>
+            <td><input type="text" th:name="age" /></td>
         </tr>
         <tr>
             <td><button type="submit">Add Cat</button></td>
@@ -95,7 +95,7 @@
             <td><input type="text" th:name="name" /></td>
         </tr>
         <tr>
-            <td>Date of Birth:</td>
+            <td>Age:</td>
             <td><input type="text" th:name="age" /></td>
         </tr>
         <tr>
@@ -103,17 +103,17 @@
         </tr>
     </table>
 </form>
-<form action="#" th:action="@{/deleteCat}" method="post">
-    <input type="hidden" name="_method" value="delete" />
+<form action="#" th:action="@{/deleteCat/{name}}" method="get">
     <table>
         <tr>
-            <td>Imię:</td>
-            <td><input type="number" th:name="name" /></td>
+            <td>Name:</td>
+            <td><input type="text" th:name="name" /></td>
         </tr>
         <tr>
             <td><button type="submit">Delete Cat</button></td>
         </tr>
     </table>
 </form>
+
 </body>
 </html>

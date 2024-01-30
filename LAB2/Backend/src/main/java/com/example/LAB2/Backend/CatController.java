@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -37,5 +38,9 @@ public class CatController {
     @PutMapping("cat/update/{name}")
     public Optional<Cat> updateByName(@PathVariable("name")String name, @RequestBody Cat cat){
         return this.catService.updateCatByName(name, cat);
+    }
+    @GetMapping("/cats/{name}")
+    public List<Cat> getAllCatsThatContainsName(@PathVariable("name") String name){
+        return this.catService.findCatsThatNameIsContainsNameFromLink(name);
     }
 }
