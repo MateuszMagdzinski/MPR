@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cat Details</title>
+</head>
+<body>
+<table>
+    <thead>
+    <th>id</th>
+    <th>name</th>
+    <th>age</th>
+    </thead>
+    <tbody>
+    <tr th:each="addCat : ${allCats}">
+        <td th:text="${cat.id}"></td>
+        <td th:text="${cat.name}"></td>
+        <td th:text="${cat.age}"></td>
+
+    </tr>
+    </tbody>
+    <a href="http://localhost:8081/allCats" class="btn">Go to Cat Page</a>
+</table>
+</body>
+</html>

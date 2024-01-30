@@ -20,6 +20,7 @@ import org.springframework.web.client.RestClient;
 
 import java.util.List;
 
+import static com.example.LAB2.Backend.CatService.BASE_URL;
 import static com.example.LAB2.CatService.BASE_URL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -47,7 +48,7 @@ public class MyRestServiceUnitTest {
                         .withSuccess(""" 
                                 {"name":"Dan", "age":12}
                                 """, MediaType.APPLICATION_JSON));
-        Cat cat = service.getCatByName("Dan");
+        Cat cat = CatService.getCatByName("Dan");
         assertEquals("Dan", cat.getName());
     }
 
